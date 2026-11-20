@@ -1,0 +1,6 @@
+nodeLinker: hoisted
+scriptsPrependNodePath: true
+preferSymlinkedExecutables: false
+packageImportMethod: copy
+minimumReleaseAgeExclude:
+  - lucide-react@1.77.0
