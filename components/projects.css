@@ -1,0 +1,39 @@
+.poster-stage {
+  position: relative;
+  touch-action: pan-y pinch-zoom;
+}
+
+.poster-arrows {
+  position: absolute;
+  inset: 50% .8rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.poster-arrows button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid #18191b44;
+  border-radius: 50%;
+  background: #fff;
+  color: #111316;
+  box-shadow: 0 2px 12px #0004;
+  pointer-events: auto;
+  transition: transform .2s ease;
+}
+
+.poster-arrows button:hover { transform: scale(1.06); }
+.poster-arrows button:focus-visible { outline: 3px solid #101113; outline-offset: 0; box-shadow: 0 0 0 5px #fff; }
+
+.poster-index {
+  margin-top: 1.7rem;
+  font: .8125rem/1.5 var(--mono);
+  color: var(--muted);
+}
+
+.poster-index + .viewer-subtitle { margin-top: .35rem; }

@@ -54,7 +54,10 @@ export default function Navigation() {
           {sections.map(({ id, name }) => <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={() => setOpen(false)}>{name}</a>)}
         </nav>
         <div className="header-actions">
-          <a className="contact-nav" href="#contact" onClick={() => setOpen(false)}>Contact<Asterisk /></a>
+          <div className="contact-nav studio-contact-nav">
+            <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+            <Asterisk label="Faire tourner l’étoile de contact" />
+          </div>
           <button ref={menuButton} className="menu-button" aria-controls="main-nav" aria-expanded={open} aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} onClick={() => setOpen(!open)}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>

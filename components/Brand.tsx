@@ -1,7 +1,10 @@
-export function Asterisk({ className = "" }: { className?: string }) {
-  return <span aria-hidden="true" className={`asterisk ${className}`}><i /><i /><i /><i /></span>;
-}
+import { Asterisk } from "./StudioAccents";
+
+export { Asterisk };
 
 export function Brand() {
-  return <a className="brand" href="#accueil" aria-label="Stevnarts, accueil"><Asterisk />stevnarts<span className="brand-stop">.</span></a>;
+  return <span className="brand studio-wordmark">
+    <Asterisk label="Faire tourner l’étoile Stevnarts" />
+    <a href="#accueil" aria-label="Stevnarts, accueil">stevnarts<span className="brand-stop">.</span></a>
+  </span>;
 }

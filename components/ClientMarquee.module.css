@@ -1,0 +1,96 @@
+.marquee {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(1.7rem, 4vw, 4rem);
+}
+
+.window {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: clients-pass 42s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex: none;
+  justify-content: space-around;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.client {
+  display: grid;
+  place-items: center;
+  flex: 1 0 auto;
+  min-width: clamp(10.5rem, 15vw, 18rem);
+  min-height: clamp(9.5rem, 14vw, 14rem);
+}
+
+.mark {
+  display: grid;
+  position: relative;
+  place-items: center;
+  max-width: 75%;
+  opacity: .84;
+  transition: transform .4s cubic-bezier(.22, .8, .2, 1), opacity .32s, filter .32s;
+}
+
+.mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask: var(--logo) center / contain no-repeat;
+  background: linear-gradient(108deg, transparent 38%, #687b9670 44%, #fff 48%, #9eb3cda6 51%, transparent 58%) 160% 50% / 270% 100% no-repeat;
+  opacity: 0;
+}
+
+.playback {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: .6rem clamp(1rem, 5vw, 6rem) 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.playback:hover, .playback:focus-visible { border-color: currentColor; }
+
+@keyframes clients-pass {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes client-glint {
+  from { background-position: 160% 50%; }
+  to { background-position: -70% 50%; }
+}
+
+@media (hover: hover) {
+  .track:has(.mark:hover) .mark:not(:hover) { opacity: .32; filter: blur(2px); }
+  .mark:hover { transform: scale(1.25); opacity: 1; }
+  .mark:hover::after { opacity: 1; animation: client-glint 1.15s ease-out both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { width: 100%; animation: none; }
+  .group { min-width: 0; width: 100%; flex-wrap: wrap; gap: 1rem; justify-content: center; padding-block: 1rem; }
+  .group[aria-hidden], .playback { display: none; }
+  .client { flex: 0 1 10.5rem; min-width: 0; min-height: 7rem; }
+  .window { mask-image: none; }
+  .mark { transition: none; }
+  .mark:hover { transform: none; }
+  .mark:hover::after { animation: none; opacity: 0; }
+}

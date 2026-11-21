@@ -4,11 +4,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Stevnarts — Steven, graphiste & directeur artistique",
-  description: "Le portfolio de Steven, graphiste et directeur artistique junior. Une sélection d’affiches et de compositions visuelles autour du sport.",
+  description: "Le portfolio de Steven, graphiste et directeur artistique junior. Identité visuelle, créations graphiques et collaborations.",
   icons: { icon: "/mark.svg" },
   openGraph: {
     title: "Stevnarts — Portfolio de Steven",
-    description: "Graphisme, direction artistique et affiches de sport.",
+    description: "Graphisme, identité visuelle et direction artistique.",
     type: "website",
     locale: "fr_FR",
   },
