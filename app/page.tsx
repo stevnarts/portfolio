@@ -5,7 +5,8 @@ import ClientMarquee from "../components/ClientMarquee";
 import Contact from "../components/Contact";
 import Navigation from "../components/Navigation";
 import Projects from "../components/Projects";
-import { Preloader, StudioOrbit } from "../components/PortfolioMotion";
+import Preloader from "../components/SolarPreloader";
+import { StudioOrbit } from "../components/PortfolioMotion";
 
 export default function Portfolio() {
   return (

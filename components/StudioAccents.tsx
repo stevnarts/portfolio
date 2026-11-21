@@ -25,10 +25,10 @@ function makeEdges(points: Point[]) {
     const dy = end.y - start.y;
     const angle = Math.atan2(dy, dx);
     return {
-      left: `${start.x}%`,
-      top: `calc(${start.y}% - var(--edge-depth) / 2)`,
-      width: `${Math.hypot(dx, dy) + 0.22}%`,
-      transform: `rotateZ(${angle}rad) rotateX(90deg)`,
+      left: `${start.x.toFixed(3)}%`,
+      top: `calc(${start.y.toFixed(3)}% - var(--edge-depth) / 2)`,
+      width: `${(Math.hypot(dx, dy) + 0.22).toFixed(3)}%`,
+      transform: `rotateZ(${angle.toFixed(4)}rad) rotateX(90deg)`,
       "--edge-light": `${Math.round(36 + 14 * Math.cos(angle + 1))}%`,
     } as CSSProperties;
   });
